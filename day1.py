@@ -1,20 +1,30 @@
-lista1 = list()
-lista2 = list()
+listaIzq = list()
+listaDcha = list()
+
+# listaIzq = [3,4,2,1,3,3]
+# listaDcha = [4,3,5,3,9,3]
 
 with open('input1.txt', 'r') as f:
     line = f.readline()
     while line:
         tab = line.find('   ')
-        lista1.append(int(line[:tab]))
-        lista2.append(int(line[tab:]))
+        listaIzq.append(int(line[:tab]))
+        listaDcha.append(int(line[tab:]))
         line = f.readline()
 
-lista1.sort()
-lista2.sort()
+listaIzq.sort()
+listaDcha.sort()
 
 distancia = 0
-for i in range(len(lista1)):
-    d = lista2[i] - lista1[i]
+for i in range(len(listaIzq)):
+    d = listaDcha[i] - listaIzq[i]
     distancia +=abs(d)
 
-print(distancia)
+print("distancia: ", distancia)
+
+similaridad = 0
+for x in listaIzq:
+    contador = listaDcha.count(x)
+    similaridad += abs(x * contador)
+
+print("similarity: ", similaridad)
