@@ -11,8 +11,10 @@ with open('input3.txt', 'r') as f:
     multiplicaciones = re.findall(regrex2, content)
     flag_enable = True
     for multiplicacion in multiplicaciones:
-        #resultado += eval(multiplicacion) #part1
-        #parte 2
+        #part1
+            #resultado += eval(multiplicacion)
+        #fin part1
+        #part2
         operacion = ",".join(string for string in multiplicacion if (len(string) > 0))
         if(flag_enable and "mul" in operacion ):
             resultado += eval(operacion)
